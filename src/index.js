@@ -40,7 +40,7 @@ export function createActionThunk (type, fn) {
       throw err;
     };
     try {
-      result = fn(...args, {getState, dispatch, extra});
+      result = fn({getState, dispatch, extra}, ...args);
     } catch (error) {
       failed(error);
     }
